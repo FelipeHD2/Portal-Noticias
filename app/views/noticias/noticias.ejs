@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Notícias</title>
+	<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;600&display=swap'); /* Importação de uma família de fontes para aplicá-las logo após */
+
+:root{
+--corfundo: #F1F1F1; /* Criação de uma variável de CSS e determinando uma cor para ela */
+}
+
+html,
+body{font-family: 'Poppins', sans-serif; /* Finalizando o setup da importação da fonte de letras que estará presente na página */
+	background-color: var(--corfundo); /* Declarando a cor da que foi determinada para a variável como a cor do background da página */
+}
+
+		table{
+			font-size: 18px;
+		}
+
+		.titulo{
+			text-align: center;
+		}
+
+		.tabela-principal{
+			justify-content: center;
+		}
+
+		.center{
+			position: absolute;
+			left: 50%;
+			top: 42%;
+			transform: translate(-50%, -50%);
+			padding: 10px;
+		} 
+
+		.flex{
+			display: flex;
+		}
+
+		.expandir:hover{
+		transform: scale(1.005);
+		}
+
+		.planilha-titulo{
+			text-align: center;
+		}
+
+		.divgeral{
+			border: 2px solid;
+		}
+	
+/* Código CSS que teve como objetivo estilizar a página e seus elementos-classes que serão escritos no <body> do HTML */
+
+	</style>
+</head>
+<body>
+	
+<div class="center">
+	<div class="titulo">
+    	<h1>Notícia</h1>
+	</div>
+
+<div class="tabela-principal flex">
+    <table>
+    	<tr> <td class="planilha-titulo divgeral">ID</td>
+    		<td class="planilha-titulo divgeral">Título</td>
+    		<td class="planilha-titulo divgeral">Notícia</td> 
+    	</tr>
+
+    	<% for (var i=0; i<noticias.length; i++){%> <!-- inicio de um código javascript no meio de uma estrutura <body> em HTML -->
+    		<tr>
+    			<td class="divgeral"><%=noticias[i].id_noticia %></td> <!-- importação de um atributo do banco de dados, o id da notícia, no caso -->
+    			<td class="divgeral"><%=noticias[i].titulo %></td> <!-- importação de um atributo do banco de dados, o título da notícia, no caso -->
+    			<td class="divgeral"><%=noticias[i].noticia %></td> <!-- importação de um atributo do banco de dados, o texto do que está a ser noticiado, no caso -->
+    		</tr>
+    	<% } %>	<!-- fechamento do código javascript, onde houve uma importação e exibição direta do código no banco de dados na estrutura HTML -->	
+    </table>
+</div>
+
+</body>
+</html>
